@@ -1,0 +1,256 @@
+/**************************************************************************************************************/
+/*Este es el archivo para los estilos del proyecto final
+Aquí se entregan los puntos 2 y 3 de los entregables. 
+Debes completar cada una de las secciones indicadas a continuación siguiendo las instrucciones dadas.
+*/
+/**************************************************************************************************************/
+
+/* 1) FUENTES
+- Elige 2 fuentes: una para PÁRRAFOS y otra para TÍTULOS.
+- Recomendación: simple/legible para párrafos; más llamativa para títulos.
+- Si usas Google Fonts, enlázala las fuentes en el <head> de tu HTML en la sección indicada y
+usa aquí exactamente los mismos nombres de familia.
+*/
+:root {
+    /*Aquí va la fuente principal para los PÁRRAFOS y demás textos.  
+    En vez de "Inter", debe colocar el nombre de la fuente elegida*/
+    --font-body: "Quicksand", sans-serif;
+    ;
+
+    /* Aquí va la fuente de TÍTULOS. 
+    En vez de "Roboto", debe colocar el nombre de la fuente elegida */
+    --font-heading: "Orbitron", sans-serif;
+}
+
+/**************************************************************************************************************/
+
+/* 2) PALETA DE COLORES
+- Define tu primario, secundario y fondo.
+- Puedes usar HEX (#RRGGBB) o RGB (rgb(r,g,b)).
+- Añadimos también color de texto para buen contraste.
+*/
+:root {
+    --color-primary:  rgb(232, 195, 233);
+    /* ← PRIMARIO */
+    --color-secondary: rgb(182, 85, 211);
+    /* ← SECUNDARIO  */
+    --color-bg: #fdf6ff;
+    /* ← FONDO */
+    --color-text: #111213;
+    /* ← TEXTO (ajusta si tu fondo es oscuro) */
+    --color-bg-2: #f4d4f085;
+    /* ← OPCIONAL: Puedes elegir un segundo color de fondo para usar en otras secciones. */
+    --color-text-2: #5a2e7e;
+    /* ← OPCIONAL: Puedes elegir un segundo color de texto para usar con el segundo color de fondo. */
+}
+
+/**************************************************************************************************************/
+
+/* 3) RESETEO BÁSICO Y TIPOGRAFÍA GLOBAL */
+/*Los siguientes estilos se dejan tal y como están.*/
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+
+}
+
+/* Agrega estilos al body*/
+
+body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+/* Títulos usan la fuente de encabezados */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    margin: 0 0 0.5em;
+    color: var(--color-text-2);
+
+
+}
+
+/**************************************************************************************************************/
+/* 4) ESTILOS ADICIONALES
+- Aquí puedes agregar estilos adicionales que consideres necesarios para tu proyecto.
+- Por ejemplo, estilos para botones, enlaces, formularios, etc.
+*/
+
+/* Section Header con video de fondo */
+header {
+    background: linear-gradient(60deg, var(--color-primary) 20%, var(--color-secondary) 100%);
+    text-align: center;
+    height: 40vh;    
+    position: relative;    
+}
+
+#main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.video-bg {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+    background: none;              
+    display: block;
+}
+
+.video-bg:empty {
+    display: none;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 2;
+}
+
+header .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;     
+    justify-content: center;    
+    align-items: center;       
+
+    text-align: center;
+    z-index: 3;
+    color: #fff;
+    gap: 20px;
+}
+
+header .content img {
+    width: 230px;
+    height: auto;
+    border-radius: 30px;    
+}
+
+/* Estilos Comunes para Secciones */
+.about-me, .section-1, .section-2, .contact, footer {
+    background-color: var(--color-bg-2);
+    border-radius: 15px;    
+    font-size: 20px;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    width: 80%;
+    max-width: 1200px;
+    min-width: 300px;
+    
+}
+
+/* Section 1 - Hobbies*/
+.icon-container {
+    display: grid;
+    gap: 40px; 
+    justify-items: center; 
+    align-items: start;
+    grid-template-columns: repeat(4, 1fr); 
+}
+
+@media (max-width: 768px) {
+    .icon-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 480px) {
+    .icon-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.icon img {
+    width: 48px; 
+    height: 48px;
+}
+
+.text {
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Section 2 - Mis influencias*/
+
+.content-mf {
+    display: grid;
+    grid-template-columns: 1fr auto; 
+    gap: 40px;
+    align-items: start; 
+}
+
+.image-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+    justify-items: center; 
+}
+
+.image-content img {
+    width: 150px;
+    height: 200px;
+    border-radius: 30px;
+}
+
+.text-content {
+    max-width: 800px;
+}
+
+@media (max-width: 768px) {
+    .content-mf {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .image-content {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* Section Footer - Contacto*/
+
+footer ul {
+    list-style: none;      
+}
+
+footer li img {
+    width: 16px; 
+    height: 16px; 
+    margin-right: 10px; 
+}
